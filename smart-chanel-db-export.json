@@ -1,0 +1,12 @@
+{
+  "doctor_details" : [ null, {
+    "age" : 45,
+    "citizenship" : "Sri Lankan",
+    "experiences" : "Special Cause from King's London ",
+    "gender" : "male",
+    "name" : "Dr.Rathnayaka",
+    "services" : "implant,Cosmetic psrtial,Root Canal",
+    "slmc_no" : 1,
+    "studied_at" : "Medical Faculty,Peradeniya"
+  } ]
+}

@@ -1,0 +1,54 @@
+<!--
+  Generated template for the Mainpro page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+   <ion-navbar primary>
+   <button menuToggle>
+     <ion-icon name="menu"></ion-icon>
+   </button>
+
+    <ion-title>Doctor Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label >Avalability</ion-label>
+    <ion-toggle [(ngModel)]="Avalability" enable="true"></ion-toggle>
+  </ion-item>
+
+  <ion-card>
+    <ion-card-content>
+       <!--<img src="F:/smartone\src\pages\mainpro" alt="">-->
+      <img src="../im1.png" alt="">
+      <!--<img src="../img/im1.png" alt="">-->
+    </ion-card-content>
+  </ion-card>
+
+<ion-list>
+<ion-item *ngFor="let doctor_detail of doctor_details">
+    {{doctor_detail.name}}
+    {{doctor_detail.studied_at}}
+
+</ion-item>
+
+</ion-list>
+
+ </ion-content>
+<!--
+<ion-tabs>
+    
+<ion-tab tabTitle="About Us" [root]="aboutTab"   tabIcon="about"></ion-tab>
+<!--<ion-tab tabTitle="Home" [root]="homeTab"   tabIcon="home"></ion-tab>-->
+<!--<ion-tab tabTitle="Contact Us" [root]="contactTab"  tabIcon="contact"></ion-tab>
+<ion-tab tabTitle="Forum" [root]="forTab"  tabIcon="Settings"></ion-tab>
+</ion-tabs>-->
+-->
