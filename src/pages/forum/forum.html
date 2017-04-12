@@ -14,5 +14,30 @@
 
 
 <ion-content padding>
-<h1>Forum</h1>
+  <div>
+<h1  >Forum</h1>
+</div>
+
+<ion-toolbar>
+  <ion-searchbar placeholder="Search" [(ngModel)]="queryText" (ionInputs)="updateques()" ng-value="Search"></ion-searchbar >
+</ion-toolbar>
+
+
+<div class="qu">
+    
+    <h5>Latest Ask Quections</h5>
+  
+     <ion-list>
+       <button  *ngFor="let item of ques | async">
+         <h6><ion-icon name="star"></ion-icon> {{item.qu}}</h6>
+         <p> <ion-icon name="heart"></ion-icon> Likes {{item.like}}                   <ion-icon name="document"></ion-icon> Replies {{item.repno}}  </p>
+
+       </button>
+     </ion-list>
+
+
+
+
+
+</div>
 </ion-content>

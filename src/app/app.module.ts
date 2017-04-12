@@ -16,8 +16,11 @@ import { Contact } from "../pages/contact/contact";
 import { Forum } from "../pages/forum/forum";
 import { Tabs } from "../pages/tabs/tabs";
 import { AngularFireModule } from 'angularfire2'
-import { Photo } from "../pages/photo";
+//import { Photo } from "../pages/photo";
 import { Mapng } from "../pages/mapng/mapng";
+import {AgmCoreModule} from"angular2-google-maps/core";
+import { Geolocation } from '@ionic-native/geolocation';
+
 
 
 
@@ -55,7 +58,18 @@ export const config = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
 
-    AngularFireModule.initializeApp(config)
+    AngularFireModule.initializeApp(config),
+     IonicModule.forRoot(MyApp),
+    AgmCoreModule.forRoot({
+      apiKey:'AIzaSyBknlKOEbAelQKgqocvQowpCRNphc1HC5g'
+
+
+
+
+
+
+    }),
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -80,6 +94,7 @@ export const config = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+      Geolocation
   
    
   ]
