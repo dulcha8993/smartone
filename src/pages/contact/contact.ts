@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Mapng } from "../mapng/mapng";
 //import * as firebase from 'firebase';
 
 /**
@@ -22,4 +23,9 @@ export class Contact {
     console.log('ionViewDidLoad Contact');
   }
 
+
+loadMao()
+{
+  this.navCtrl.push(Mapng);
+}
 }

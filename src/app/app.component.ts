@@ -8,9 +8,8 @@ import { ListPage } from '../pages/list/list';
 import { Mainpro } from "../pages/mainpro/mainpro";
 import { Editpro } from "../pages/editpro/editpro";
 import { Tabs } from "../pages/tabs/tabs";
-import * as firebase from 'firebase';
-import {AuthProviders,AuthMethods,AngularFire} from 'angularfire2';
-import {AngularFireModule} from 'angularfire2'
+import { AngularFire } from "angularfire2";
+
 
 
 @Component({
@@ -20,7 +19,7 @@ import {AngularFireModule} from 'angularfire2'
 export class MyApp {
   
   @ViewChild(Nav) nav: Nav;
- firebase:any;
+ 
   
 
   rootPage: any = Mainpro;
@@ -29,25 +28,8 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
   
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public angfire:AngularFire) {
-   // this.initializeApp();
-
-
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,angiFire:AngularFire) {
   
-
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAYBgeZWrHOa_wjTaz-ywYU-BZnV1psq6w",
-    authDomain: "smart-chanel-db.firebaseapp.com",
-    databaseURL: "https://smart-chanel-db.firebaseio.com",
-    projectId: "smart-chanel-db",
-    storageBucket: "smart-chanel-db.appspot.com",
-    messagingSenderId: "711029386938"
-  };
-  firebase.initializeApp(config);
-
-    
-
 
   }
 

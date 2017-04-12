@@ -32,15 +32,23 @@
       <!--<img src="../img/im1.png" alt="">-->
     </ion-card-content>
   </ion-card>
-
+<div>
+  <fieldset>
 <ion-list>
-<ion-item *ngFor="let doctor_detail of doctor_details">
-    {{doctor_detail.name}}
-    {{doctor_detail.studied_at}}
+<ion-item *ngFor="let item of doctor_details | async">
+          <p style="text-align:center;"><b>{{item.name}}</b></p>
+         <p style="text-align:center;"><b>({{item.Specializatio}})</b></p>
+          <p style="text-align:center;"><b>({{item.studied_at}})</b></p>
+  
 
 </ion-item>
 
+
 </ion-list>
+</fieldset>
+</div>
+
+
 
  </ion-content>
 <!--
@@ -51,4 +59,4 @@
 <!--<ion-tab tabTitle="Contact Us" [root]="contactTab"  tabIcon="contact"></ion-tab>
 <ion-tab tabTitle="Forum" [root]="forTab"  tabIcon="Settings"></ion-tab>
 </ion-tabs>-->
--->
+

@@ -15,23 +15,23 @@ import { Aboutus } from "../pages/aboutus/aboutus";
 import { Contact } from "../pages/contact/contact";
 import { Forum } from "../pages/forum/forum";
 import { Tabs } from "../pages/tabs/tabs";
-//import { AngularFireModule } from "angularfire2";
-
-//import * as firebase from 'firebase';
-import { AngularFireModule } from "angularfire2";
-//import {AngularFireModule} from 'angularfire2'
+import { AngularFireModule } from 'angularfire2'
+import { Photo } from "../pages/photo";
+import { Mapng } from "../pages/mapng/mapng";
 
 
-/*const config = {
+
+export const config = {
     apiKey: "AIzaSyAYBgeZWrHOa_wjTaz-ywYU-BZnV1psq6w",
     authDomain: "smart-chanel-db.firebaseapp.com",
-    databaseURL: "https://smart-chanel-db.firebaseio.com",
+    databaseURL: "https://smart-chanel-db.firebaseio.com/",
     projectId: "smart-chanel-db",
     storageBucket: "smart-chanel-db.appspot.com",
     messagingSenderId: "711029386938"
   };
-  firebase.initializeApp(config);
-*/
+
+
+ 
 
 @NgModule({
   declarations: [
@@ -45,6 +45,8 @@ import { AngularFireModule } from "angularfire2";
     Contact,
     Forum,
     Tabs,
+    Mapng
+    //Photo
     
     
    // SmartApi
@@ -53,7 +55,7 @@ import { AngularFireModule } from "angularfire2";
     BrowserModule,
     IonicModule.forRoot(MyApp),
 
-    //AngularFireModule.initializeApp(config)
+    AngularFireModule.initializeApp(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -67,6 +69,9 @@ import { AngularFireModule } from "angularfire2";
     Contact,
     Tabs,
     Forum,
+    Mapng
+    
+    //Photo
     //AngularFireModule
     //SmartApi
     

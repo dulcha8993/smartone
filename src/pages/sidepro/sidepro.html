@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!--<ion-header>
 
   <ion-navbar>
     <ion-title>Edit Your Profile</ion-title>
@@ -15,46 +15,178 @@
 
 <ion-content padding>
 
+  
+
   <form action="/action_page.php">
   <fieldset>
-    <legend>Personal information:</legend>
-    First name:<br>
-    <input type="text" name="firstname" ><br>
-    Last name:<br>
-    <input type="text" name="lastname" ><br>
+    <ion-list>
+      <legend>Personal information:</legend>
+<ion-item *ngFor="let item of doctor_details | async">
+
+    
+    Name:<br>
+    <input type="text" name="firstname" value={{item.name}}><br><br>
+   
     Specialization:<br>
-    <input type="text" name="speci" ><br>
+    <input type="text" name="speci" value={{item.Specializatio}}><br><br>
 
  
     SLMC NO:<br>
-    <input type="text" name="slmcno" ><br>
-    Gender:<br>
+    <input type="text" name="slmcno" value={{item.slmc_no}}><br><br>
+    Gender:
     <input type="radio" name="gender" value="male" checked> Male
-    <input type="radio" name="gender" value="female"> Female<br>
+    <input type="radio" name="gender" value="female"> Female<br><br>
 
      Age:<br>
-    <input type="text" name="age" ><br>
+    <input type="text" name="age" value={{item.age}}><br><br>
     Citizenship:<br>
-    <input type="text" name="citi" ><br>
+    <input type="text" name="citi" value={{item.citizenship}}><br><br>
     STudied At:<br>
-    <input type="text" name="atd" ><br>
-    <input type="submit" value="Submit" >
+    <input type="text" name="atd" value={{item.studied_at}}><br>
+</ion-item>
+    </ion-list>
+    <button>Update</button>
   </fieldset>
 </form>
-<br>
+<br><br>
 <fieldset>
-    <legend>Services & Experiences:</legend>
+    <legend>Services & Experiences:</legend><br>
+    <ion-list>
+    <ion-item *ngFor="let item of doctor_details | async">
 <form action="/action_page.php">
   Add Services:<br>
-  <input type="text" name="ser" ><br>
+  <input type="text" name="ser" value={{item.services}}><br><br>
 
    Add Expriences:<br>
-  <input type="text" name="exe" ><br>
+  <input type="text" name="exe" value={{item.experiences}}><br>
  
-  <input type="submit" value="Submit">
+  <button (click)="updateData()">Update</button>
 </form>
+    </ion-item>
+    </ion-list>
 </fieldset>
 
 
 
 </ion-content>
+-->
+
+
+
+
+<ion-header>
+  <ion-navbar >
+    <ion-title>Edit You Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content  padding>
+
+<div>
+
+  <ion-card *ngFor="let photo of photos">
+    <img [src]="photo.src"/>
+    <button  ion-buttonoutline block (click)="takePhoto()">Tack a Photo</button>
+    <button ion-button danger item-left clear (click)="deletePhoto(photo)"><ion-icon name="trash"></ion-icon>Delete Photo</button>
+  </ion-card>
+
+
+</div>
+
+
+
+
+  <div >
+    
+    <form >
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            
+           
+               <ion-item *ngFor="let item of doctor_details | async">
+                <ion-label floating >Name</ion-label>
+                <ion-input type="text" placeholder="First Name" name= "FirstName"   value={{item.name}} required></ion-input>
+                </ion-item>
+            
+                 <ion-item *ngFor="let item of doctor_details | async" >
+                <ion-label floating >SLMC NO</ion-label>
+                 <ion-input type="text" placeholder="Last Name" name="password"  value={{item.slmc_no}} required></ion-input>
+                </ion-item>
+
+                 <ion-item>
+                <ion-label  floating  >Date of Birth </ion-label>
+                 <ion-datetime displayFormat="DD"></ion-datetime>
+                </ion-item>
+              
+              <ion-list radio-group >
+
+                   
+                      <ion-item *ngFor="let item of doctor_details | async">
+                       <ion-label>Male</ion-label>
+                      <ion-radio value="Male" ></ion-radio>
+                      </ion-item>                   
+                      
+                     <ion-item *ngFor="let item of doctor_details | async">
+                     <ion-label>Female</ion-label>
+                     <ion-radio value="Female"></ion-radio>
+                    </ion-item>    
+
+              </ion-list>
+            
+            <ion-item *ngFor="let item of doctor_details | async">
+              <ion-label floating >Mobile Number</ion-label>
+              <ion-input type="text" placeholder="Mobile Number" name="text" value={{item.phoneNo}} required></ion-input>
+            </ion-item>
+
+              <ion-item *ngFor="let item of doctor_details | async">
+                <ion-label floating >Specialization</ion-label>
+              <ion-input type="text" placeholder="Address" name= "Address"  value={{item.citizenship}} required></ion-input>
+            </ion-item>
+
+             <ion-item *ngFor="let item of doctor_details | async">
+               <ion-label floating >Studied At</ion-label>
+              <ion-input type="text" placeholder="Studied At" name="studied"  value={{item.studied_at}} required></ion-input>
+            </ion-item>
+
+             <ion-item *ngFor="let item of doctor_details | async">
+               <ion-label floating >Email</ion-label>
+              <ion-input type="text" placeholder="Email" name="email"  value={{item.Email}} required></ion-input>
+            </ion-item>
+
+             <ion-item *ngFor="let item of doctor_details | async">
+               <ion-label floating >Services</ion-label>
+              <ion-input type="text" placeholder="Services" name="services" value={{item.services}} required></ion-input>
+            </ion-item>
+            
+             <ion-item *ngFor="let item of doctor_details | async">
+               <ion-label floating >Experiences:</ion-label>
+              <ion-input type="text" placeholder="Experiences" name="experiences" value={{item.experiences}} required></ion-input>
+            </ion-item>
+            
+
+            <ion-item >
+              <ion-label floating >Password</ion-label>
+              <ion-input type="password" placeholder="Password" name="password"  required></ion-input>
+            </ion-item>
+            
+              <ion-item>
+                <ion-label floating >Confirmed Password</ion-label>
+              <ion-input type="text" placeholder="confirmed Password" name="password"  required></ion-input>
+            </ion-item>
+            
+              
+
+            
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col >
+          <button ion-button class="submit-btn" >Edit</button>
+        </ion-col>
+      </ion-row>
+      
+    </form>
+  </div>⁠⁠⁠⁠

@@ -4,6 +4,7 @@ import { Contact } from "../contact/contact";
 import { Aboutus } from "../aboutus/aboutus";
 import { Forum } from "../forum/forum";
 import { Tabs } from "ionic-angular";
+import {AngularFire , FirebaseListObservable} from 'angularfire2';
 
 //import * as firebase from 'firebase';
 
@@ -18,16 +19,19 @@ import { Tabs } from "ionic-angular";
   selector: 'page-mainpro',
   templateUrl: 'mainpro.html',
 })
-export class Mainpro {
-    doctor_details: any;
+
+
     
+export class Mainpro {
+    doctor_details: FirebaseListObservable<any>;
   
  /*contactTab=Contact;
   aboutTab=Aboutus;
   forTab=Forum;
 */
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, angiFire:AngularFire) {
+    this.doctor_details=angiFire.database.list('/doctor_details');
   }
 
   ionViewDidLoad() {

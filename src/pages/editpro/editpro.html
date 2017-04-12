@@ -28,19 +28,27 @@
       <img src="im1.PNG" alt="">
       <!--<img src="../img/im1.PNG" alt="">-->
     </ion-card-content>
+     <button ion-button class="submit-btn" >Upload</button>
   </ion-card>
- <!-- <button  style='float:right;'>Change profile picture</button>-->
+ 
   </div>
  <br>
   <div>
-     <fieldset>
+     <fieldset >
     <!--<h4 style="text-align:center;">Doctor Details</h4>-->
-     <legend><b>Doctor Details</b></legend>
-    <p><ion-label>SLMC NO    :</ion-label>{{name}}</p>
-    <p><ion-label>Gender     :</ion-label>{{gender}}</p>
-    <p><ion-label>Age        :</ion-label>{{age}}</p>
-    <p><ion-label>Citizenship:</ion-label>{{citizenship}}</p>
-    <p><ion-label>Studied At :</ion-label>{{stu}}</p>
+      <legend ><b>Doctor Details</b></legend>
+     
+<ion-item *ngFor="let item of doctor_details | async">
+ 
+    <p>Name          :{{item.name}}</p>
+    <p>SLMC NO       :{{item.slmc_no}}</p>
+    <p>Gender        :{{item.gender}}</p>
+    <p>Age           :{{item.age}}</p>
+    <p>Citizenship   :{{item.citizenship}}</p>
+    <p>Studied At    :{{item.studied_at}}</p>
+    <p>Email         :{{item.Email}}</p>
+</ion-item>
+    
      </fieldset>
     
   </div>
@@ -48,14 +56,16 @@
   <div>
      <fieldset>
        <legend><b>Services</b></legend>
+       <ion-item *ngFor="let item of doctor_details | async">
          <!--<h4 style="text-align:center;">Services</h4>-->
-         <p>{{services}}gggggggg
+         <p>{{item.services}}</p>
+       </ion-item>
 
 
 
 
           
-         </p>
+         
      </fieldset>
 
   </div>
@@ -63,16 +73,17 @@
   <div>
      <fieldset>
        <legend><b>Experiences</b></legend>
+        <ion-item *ngFor="let item of doctor_details | async">
     <!-- <h4 style="text-align:center;">Work Experiences</h4>-->
-      <p>{{services}}jjjj
+      <p>{{item.experiences}}</p>
 
 
 
-      </p>
+        </ion-item>
       </fieldset>
   </div>
 
   <br>
-  <button style='float:right;'(click)="gotoEdit()">Edit</button>
+  <button ion-button class="submit-btn" style='float:right;'(click)="gotoEdit()">Edit</button>
 
 </ion-content>
